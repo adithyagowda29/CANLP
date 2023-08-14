@@ -1,5 +1,7 @@
 # TinyCAN-IDS
 
+Disclaimer: THE SAMPLE CODE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL KALANA SAHABANDU OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) SUSTAINED BY YOU OR A THIRD PARTY, HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT ARISING IN ANY WAY OUT OF THE USE OF THIS SAMPLE CODE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 ## Summary
 The controller area network (CAN) protocol is the most widely used standard in the automotive industry for In-Vehicle Networks (IVN). 
 However, this protocol lacks essential security features such as encryption and message authentication, which makes the vehicle network vulnerable to exploits by an adversary. 
@@ -27,7 +29,7 @@ Each dataset is cleaned to a standard dataset format using the following steps:
 - The `CAN ID` is a single column with the value of Arbitration ID.
 - The `CAN Data` is a single column where each byte is separated by single whitespace.
 - The `Label` values are renamed to 'Normal' or the name of the attack the frame indicates.
-## Running main.py
+## Running main.ipynb
 Guide:
 - Set the inputs in cell number 2.
 - For TSNE plot custom inputs can be set in the end (optional)
