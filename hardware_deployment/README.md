@@ -1,4 +1,4 @@
-# TinyCAN-IDS
+# TinyCAN-IDS Hardware Deployment
 
 In all the code we're using as interface `can1`. Change it to match your system. 
 
