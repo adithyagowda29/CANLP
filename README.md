@@ -20,13 +20,15 @@ We demonstrate that the accuracy of TinyCAN-IDS is maintained after model compre
 4. ROAD CAN INTRUSION DATASET [Link](https://0xsam.com/road/)
 
 ## Dataset Cleaning
-Each dataset is cleaned to a standard dataset format:
-- Timestamp is removed from frames
-- CAN Data frame is a single column where each byte is separated by single space
-- Labels are renamed to 'Normal' or the name of the attack the frame indicates  
-Each sub-dataset containing attacks in combined into a single dataset file for a true multi-class classification model.
+Each dataset is cleaned to a standard dataset format using the following steps:
+- Download the dataset using the links above into the `dataset_cleaning` folder.
+- Run the `.py` file corresponding to the dataset to get the dataset to a standardized format.
+- The standarized format here is defined as single csv file with following columns in the order - `CAN ID, CAN Data, Label`.
+- The `CAN ID` is a single column with the value of Arbitration ID.
+- The `CAN Data` is a single column where each byte is separated by single whitespace.
+- The `Label` values are renamed to 'Normal' or the name of the attack the frame indicates.
 ## Running main.py
 Guide:
 - Set the inputs in cell number 2.
 - For TSNE plot custom inputs can be set in the end (optional)
-- Run the notebook
+- Run the notebook and results are saved in the `results` folder.
