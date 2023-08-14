@@ -5,6 +5,7 @@ The controller area network (CAN) protocol is the most widely used standard in t
 However, this protocol lacks essential security features such as encryption and message authentication, which makes the vehicle network vulnerable to exploits by an adversary. 
 Although multiple types of intrusion detection systems have been developed for CAN, they either rely on fixed rule-bases or heuristics provided by a human and have been shown to become ineffective when an unfamiliar or unknown attack is carried out. 
 In this paper, we adopt a data-driven approach based on machine learning. 
+
 We develop TinyCAN-IDS, a framework that reasons about the information contained in messages transmitted on the CAN bus to detect four types of attacks - `Flooding, Fuzzing, Spoofing, and Malfunction`. 
 TinyCAN-IDS uses `Term Frequency-Inverse Document Frequency` (TF-IDF), a Natural Language Processing (NLP) technique to discern complex features associated with CAN data and Deep Neural Networks (DNN) to effectively determine using these features whether a given message is `Normal` or falls into one of four different attack categories. 
 Through extensive experiments on three public vehicle network datasets, we show that the DNN-based TinyCAN-IDS framework yields higher classification accuracies than five widely-used machine learning models.
