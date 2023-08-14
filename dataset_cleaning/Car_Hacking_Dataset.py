@@ -18,7 +18,7 @@ datasets = {
     'Car_Hacking_Dataset/RPM_dataset_new.csv': 'Spoofing'
 }
 
-with open('Car_Hacking_Dataset_All_multiclass.csv', 'w', newline='') as output_file:
+with open('../dataset_csv/Car_Hacking_Dataset_All_multiclass.csv', 'w', newline='') as output_file:
     writer = csv.writer(output_file)
     
     for dataset_path, attack_type in datasets.items():

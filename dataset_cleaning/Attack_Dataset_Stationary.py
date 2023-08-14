@@ -11,7 +11,7 @@ def write_filtered_rows_to_output(input_file_path, writer):
             if row[5] != "Replay":
                 writer.writerow([row[1], row[3], row[5]])
 
-output_path = 'Attack_Dataset_Stationary_All_multiclass.csv'
+output_path = '../dataset_csv/Attack_Dataset_Stationary_All_multiclass.csv'
 input_files = ['0_Training/Pre_train_S_1.csv', '0_Training/Pre_train_S_2.csv']
 
 with open(output_path, 'w', newline='') as output_file:
