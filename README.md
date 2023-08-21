@@ -1,19 +1,23 @@
 # TinyCAN-IDS
 
-Disclaimer: THE SAMPLE CODE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL KALANA SAHABANDU OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) SUSTAINED BY YOU OR A THIRD PARTY, HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT ARISING IN ANY WAY OUT OF THE USE OF THIS SAMPLE CODE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+Disclaimer: THE SAMPLE CODE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL KAYVA BALASUBRAMANIAN AND ADITHYA GOWDA BARAGUR OR OTHER CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) SUSTAINED BY YOU OR A THIRD PARTY, HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT ARISING IN ANY WAY OUT OF THE USE OF THIS SAMPLE CODE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## Summary
-The controller area network (CAN) protocol is the most widely used standard in the automotive industry for In-Vehicle Networks (IVN). 
-However, this protocol lacks essential security features such as encryption and message authentication, which makes the vehicle network vulnerable to exploits by an adversary. 
-Although multiple types of intrusion detection systems have been developed for CAN, they either rely on fixed rule-bases or heuristics provided by a human and have been shown to become ineffective when an unfamiliar or unknown attack is carried out. 
-In this paper, we adopt a data-driven approach based on machine learning. 
+In-vehicle security has been a rising concern especially due to modern vehicles using software driven Electronic ControlUnits (ECUs) and wireless connectivity. 
+The CAN protocol is the most popular and extensively used in-vehicle messaging standard in the automotive industry. 
+However, the design of the CAN protocol does not include essential security features such as encryption or message authentication, which makes the vehicle network vulnerable to exploits by an adversary. 
+Previous research has demonstrated how an adversary can exploit vulnerabilities in remote endpoints to compromise an ECU, access the in-vehicle network and cause abnormal vehicle behavior thus jeopardizing driver and passenger safety.
 
-We develop TinyCAN-IDS, a framework that reasons about the information contained in messages transmitted on the CAN bus to detect four types of attacks - `Flooding, Fuzzing, Spoofing, and Malfunction`. 
-TinyCAN-IDS uses `Term Frequency-Inverse Document Frequency` (TF-IDF), a Natural Language Processing (NLP) technique to discern complex features associated with CAN data and Deep Neural Networks (DNN) to effectively determine using these features whether a given message is `Normal` or falls into one of four different attack categories. 
-Through extensive experiments on three public vehicle network datasets, we show that the DNN-based TinyCAN-IDS framework yields higher classification accuracies than five widely-used machine learning models.
+Hence, we develop TinyCAN-IDS, a framework that reasons about the information contained in messages transmitted on the CAN bus and also its Arbitration ID to detect Time Opaque attacks which consists of - `Fuzzing, Targeted ID, and Masquerade`.
+- For a `Fuzzing` attack, messages with random IDs and arbitrary payloads are injected into the bus. 
+- In case of `Targeted ID` attack, the adversary can inject messages with a specific target ID and manipulated data field which is referred to as targeting a signal. 
+- To implement `Masquerade` attacks, the adversary first suspends messages of a specific weakly compromised target ECU, for instance, using bus off attack and then injects spoofed messages with this target ID using a strongly compromised ECU, thus masquerading as the target ECU.
+
+TinyCAN-IDS uses the NLP Term Frequency-Inverse Document Frequency (TF-IDF) technique to identify frequency patterns in data with respect to each frame as well as a set of frames observed on the bus, and subsequently uses this information during real-time attack detection.
+Through extensive experiments on four public vehicle network datasets, we show that the DNN-based TinyCAN-IDS framework yields higher classification accuracies than five widely-used machine learning models.
 We also present a lightweight and cost-effective `hardware implementation` of TinyCAN-IDS.
 Our implementation uses `Quantization`, a TinyML technique, to reduce the size of the DNN model for effective deployment on resource-constrained hardware.
-We demonstrate that the accuracy of TinyCAN-IDS is maintained after model compression.
+We also demonstrate that the accuracy of TinyCAN-IDS is maintained after model compression.
 
 ## Datasets Used
 1. CAR HACKING: ATTACK & DEFENSE CHALLENGE 2020 [Link](https://ocslab.hksecurity.net/Datasets/carchallenge2020)
@@ -29,8 +33,8 @@ Each dataset is cleaned to a standard dataset format using the following steps:
 - The `CAN ID` is a single column with the value of Arbitration ID.
 - The `CAN Data` is a single column where each byte is separated by single whitespace.
 - The `Label` values are renamed to 'Normal' or the name of the attack the frame indicates.
+- The generated csv file containing `no_duplicates` is used for the next steps.
+
 ## Running main.ipynb
-Guide:
 - Set the inputs in cell number 2.
-- For TSNE plot custom inputs can be set in the end (optional)
 - Run the notebook and results are saved in the `results` folder.
