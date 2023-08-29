@@ -14,10 +14,10 @@ we develop CANLP, an NLP-based Intrusion Detection System (IDS) to effectively d
 - To implement `Masquerade` attacks, the adversary first suspends messages of a specific weakly compromised target ECU, for instance, using bus off attack, and then injects spoofed messages with this target ID using a strongly compromised ECU, thus masquerading as the target ECU.
 
 CANLP uses the NLP Term Frequency-Inverse Document Frequency (TF-IDF) technique to identify frequency patterns in data with respect to each frame as well as a set of frames observed on the bus and subsequently uses this information during real-time attack detection.
-Through extensive experiments on four public vehicle network datasets, we show that the DNN-based TinyCAN-IDS framework yields higher classification accuracies than five widely used machine learning models.
-We also present a lightweight and cost-effective `hardware implementation` of TinyCAN-IDS.
+Through extensive experiments on four public vehicle network datasets, we show that the DNN-based CANLP framework yields higher classification accuracies than five widely used machine learning models.
+We also present a lightweight and cost-effective `hardware implementation` of CANLP.
 Our implementation uses `Quantization`, a TinyML technique, to reduce the size of the DNN model for effective deployment on resource-constrained hardware.
-We also demonstrate that the accuracy of TinyCAN-IDS is maintained after model compression.
+We also demonstrate that the accuracy of CANLP is maintained after model compression.
 
 ## Datasets Used
 1. CAR HACKING: ATTACK & DEFENSE CHALLENGE 2020 [Link](https://ocslab.hksecurity.net/Datasets/carchallenge2020)
