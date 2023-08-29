@@ -25,7 +25,7 @@ We also demonstrate that the accuracy of CANLP is maintained after model compres
 3. IN-VEHICLE NETWORK INTRUSION DETECTION CHALLENGE [Link](https://ocslab.hksecurity.net/Datasets/datachallenge2019/car)
 4. ROAD CAN INTRUSION DATASET [Link](https://0xsam.com/road/)
 
-## Dataset Cleaning
+## Dataset Cleaning - (Optional)
 Each dataset is cleaned to a standard dataset format using the following steps:
 - Download the dataset using the links above into the `dataset_cleaning` folder.
 - Run the `.py` file corresponding to the dataset to get the dataset to a standardized format.
@@ -33,8 +33,9 @@ Each dataset is cleaned to a standard dataset format using the following steps:
 - The `CAN ID` is a single column with the value of Arbitration ID.
 - The `CAN Data` is a single column where each byte is separated by a single whitespace.
 - The `Label` values are renamed to 'Normal' or the name of the attack the frame indicates.
-- The generated CSV file containing `no_duplicates` is used for the next steps.
+- The generated CSV file in the `dataset_csv` folder containing `no_duplicates` is used for the next steps.
 
 ## Running main.ipynb
-- Set the inputs in cell number 2.
+- Select a CSV file in the `dataset_csv` folder.
+- Set all the inputs in cell number 2.
 - Run the notebook and results are saved in the `results` folder.
