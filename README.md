@@ -9,12 +9,11 @@ However, the design of the CAN protocol does not include essential security feat
 Previous research has demonstrated how an adversary can exploit vulnerabilities in remote endpoints to compromise an ECU, access the in-vehicle network, and cause abnormal vehicle behavior thus jeopardizing driver and passenger safety.
 
 We develop CANLP, an NLP-based Intrusion Detection System (IDS) to effectively determine whether a transmitted message originated from a legitimate ECU or an adversary and identify the ECU on which the attack was mounted. 
-CANLP uses Term Frequency-Inverse Document Frequency (TF-IDF), a Natural Language Processing (NLP) technique to discern complex features associated with CAN data and trains Machine Learning (ML) models with these features to perform attack classification. It detects Time Opaque attacks which consist of - `Fuzzing, Targeted ID, and Masquerade`.
+CANLP uses `Term Frequency-Inverse Document Frequency (TF-IDF)`, a Natural Language Processing (NLP) technique to discern complex features associated with CAN data and trains Machine Learning (ML) models with these features to perform attack classification. It detects Time Opaque attacks which consist of - `Fuzzing, Targeted ID, and Masquerade`.
 - For a `Fuzzing` attack, messages with random IDs and arbitrary payloads are injected into the bus. 
 - In the case of a `Targeted ID` attack, the adversary can inject messages with a specific target ID and manipulated data field which is referred to as targeting a signal. 
 - To implement `Masquerade` attacks, the adversary first suspends messages of a specific weakly compromised target ECU, for instance, using bus off attack, and then injects spoofed messages with this target ID using a strongly compromised ECU, thus masquerading as the target ECU.
 
-CANLP uses the NLP Term Frequency-Inverse Document Frequency (TF-IDF) technique to identify frequency patterns in data with respect to each frame as well as a set of frames observed on the bus and subsequently uses this information during real-time attack detection.
 Through extensive experiments on four public vehicle network datasets, we show that the DNN-based CANLP framework yields higher classification accuracies than five widely used machine learning models.
 We also present a lightweight and cost-effective `hardware implementation` of CANLP.
 Our implementation uses `Quantization`, a TinyML technique, to reduce the size of the DNN model for effective deployment on resource-constrained hardware.
@@ -25,6 +24,14 @@ We also demonstrate that the accuracy of CANLP is maintained after model compres
 2. CAR-HACKING DATASET [Link](https://ocslab.hksecurity.net/Datasets/car-hacking-dataset)
 3. IN-VEHICLE NETWORK INTRUSION DETECTION CHALLENGE [Link](https://ocslab.hksecurity.net/Datasets/datachallenge2019/car)
 4. ROAD CAN INTRUSION DATASET [Link](https://0xsam.com/road/)
+
+## Models Used
+1. Support Vector Machine (SVM)
+2. Logistic Regression (LR)
+3. Gaussian Naive Bayes (GNB)
+4. Decision Trees (DT)
+5. Random Forest (RF)
+6. Deep Neural Network (DNN)
 
 ## Dataset Cleaning - (Optional)
 Each dataset is cleaned to a standard dataset format using the following steps:
