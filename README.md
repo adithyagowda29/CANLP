@@ -18,6 +18,7 @@ Through extensive experiments on four public vehicle network datasets, we show t
 We also present a lightweight and cost-effective `hardware implementation` of CANLP.
 Our implementation uses `Quantization`, a TinyML technique, to reduce the size of the DNN model for effective deployment on resource-constrained hardware.
 We also demonstrate that the accuracy of CANLP is maintained after model compression.
+We also show that CANLP can be effectively deployed for attack detection on resource-constrained hardware through experiments on a CAN bus testbed.
 
 ## Datasets Used
 1. CAR HACKING: ATTACK & DEFENSE CHALLENGE 2020 [Link](https://ocslab.hksecurity.net/Datasets/carchallenge2020)
@@ -44,6 +45,10 @@ Each dataset is cleaned to a standard dataset format using the following steps:
 - The generated CSV file in the `dataset_csv` folder containing `no_duplicates` is used for the next steps.
 
 ## Running main.ipynb
+- Clone the repository on the local machine - `git clone https://github.com/adithyagowda29/CANLP`.
+- Install all required libraries using - `pip install -r requirements.txt`.
 - Select a CSV file in the `dataset_csv` folder.
 - Set all the inputs in cell number 2.
 - Run the notebook and results are saved in the `results` folder.
+
+For the procedure on implementing on hardware, go to the `hardware_deployment` folder.
