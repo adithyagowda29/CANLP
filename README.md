@@ -51,4 +51,16 @@ Each dataset is cleaned to a standard dataset format using the following steps:
 - Open `main.ipynb` and set all the inputs in cell number 2.
 - Run the notebook and results are saved in the `results` folder.
 
+## If using Anaconda
+- Clone the repository on the local machine - `git clone https://github.com/adithyagowda29/CANLP`.
+- Create virtual environment - `conda create -n “canlp” python=3.8.17`.
+- Activate the environment - `conda activate canlp`.
+- Install dependencies for creating kernel - `pip install ipykernel`.
+- Create a kernel - `python -m ipykernel install --user --name=canlp`.
+- Install all required libraries using - `pip install -r requirements.txt`.
+- Open the `main.ipynb` using Jupyter Notebook and set the kernel(Here:`canlp`).
+- Select a CSV file in the `dataset_csv` folder.
+- Set all the inputs in cell number 2.
+- Run the notebook and results are saved in the `results` folder.
+
 For the procedure on implementing on hardware, go to the `hardware_deployment` folder.
