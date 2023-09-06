@@ -44,7 +44,7 @@ Each dataset is cleaned to a standard dataset format using the following steps:
 - The `Label` values are renamed to 'Normal' or the name of the attack the frame indicates.
 - The generated CSV file in the `dataset_csv` folder containing `no_duplicates` is used for the next steps.
 
-## Procedure to Run
+## Procedure to Run (Tested on Python 3.8.17)
 - Clone the repository on the local machine - `git clone https://github.com/adithyagowda29/CANLP`.
 - Install all required libraries using - `pip install -r requirements.txt`.
 - Select a CSV file in the `dataset_csv` folder.
